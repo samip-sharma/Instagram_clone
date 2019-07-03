@@ -8,3 +8,4 @@
 user1=User.create(name:"samip")
 user2=User.create(name:"Brandon")
 user3=User.create(name:"Kevin")
+user4=User.create(name:"Richard")
