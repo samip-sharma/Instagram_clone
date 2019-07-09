@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="container">
+
+      <div class="icons">
+        <i class="fa fa-search fa-5x">Search result</i><br><br>
+      </div>
+
+      <% @users.each do |user|  %>
+      <div class="users-each">-<a href=<%="/follow/#{user.id}/new" %>> <i class="fas fa-user-plus"></i></a>
+        <%= user.name %>-
+      </div>
+
+      <% end %>
+
+  </div>
+
+</div>

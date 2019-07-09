@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+
+      <div class="icons">
+        <i class="fa fa-edit fa-5x">Edit User</i><br><br>
+      </div>
+
+    <%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name%><br><br>
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name%><br><br>
+    <%= f.label :age %>
+    <%= f.text_field :age%><br><br>
+    <%= f.label :bio %>
+    <%= f.text_field :bio%><br><br>
+    <%= f.label :password %>
+    <%= f.password_field :password%><br><br>
+    <%= f.submit "Edit User",class:"button"%>
+    <% end %>
+
+  </div>
+
+</div>

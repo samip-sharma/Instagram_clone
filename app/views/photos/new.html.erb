@@ -1,0 +1,22 @@
+
+
+
+
+
+<div class="wrapper">
+  <div class="container">
+
+      <div class="icons">
+        <i class="fa fa-upload fa-5x">Upload Image</i><br><br>
+      </div>
+      <%= form_for Photo.new  do |f| %>
+      <%=f.label :caption %>
+      <%=f.text_area :caption%><br>
+      <%= f.file_field :image %>
+      <%= f.submit "Upload Picture",class:"button"%>
+      <% end %>
+
+
+  </div>
+
+</div>
