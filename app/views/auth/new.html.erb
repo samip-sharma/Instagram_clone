@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+        <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+
+
+  <div class="wrapper">
+      <div class="container">
+
+        <div class="icons">
+          <i class="fa fa-instagram fa-4x">Instagram</i><br><br>
+
+        </div>
+
+          <div class="text-fields">
+            <%= form_tag ("/auth") do  %>
+            <%= label_tag "username" %>
+            <%= text_field_tag :user_name %><br><br>
+            <%= label_tag "password" %>
+            <%= password_field_tag :password %><br><br>
+            <%= submit_tag "Log In" ,class: "button"%>
+          <% end %>
+        </div><br><hr><br>
+
+      <div class="sign-up">
+        <div class="sign-up">
+          <p>Don't have an account? <%= link_to "Sign up", 'users/new' %></p>
+        </div>
+      </div>
+    </div>
+
+</div>
+</body>
+
+</html>
