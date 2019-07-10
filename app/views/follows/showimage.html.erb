@@ -1,0 +1,50 @@
+<div class="nav-wall">
+  <div class="icon-show">
+    <a href='/users'>
+      <i class="fa fa-instagram fa-2x" style="color:black;">Instagram</i>
+    </a>
+  </div>
+
+  <div class="profile-show">
+    <a href='<%="/users/#{@photo.user.id}"%>'>
+      <i class="fa fa-user fa-2x" style="color:black;">Profile</i>
+    </a>
+  </div>
+
+  <div class="search-bar">
+    <%= form_tag(user_search_path ,method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
+
+<div class="upload-show">
+  <a href="/photos/new">
+    <i class="fa fa-upload fa-2x" style="color:black;">Upload</i>
+  </a>
+
+</div>
+
+<div class="signout-bar">
+  <i class="fa fa-sign-out fa-2x"></i>
+</a>
+<%= button_to "logout" , "/auth", method: "delete" %>
+</div>
+</div>
+
+
+<div class="container-one">
+    <div class="name-one">
+      Uploader:<%= @photo.user.name %>
+    </div>
+
+    <div class="img-one">
+      <%= image_tag(@photo.image)%>
+    </div>
+
+    <div class="cap-1">
+    <h3>  Caption:<%= @photo.caption %></h3>
+    </div>
+
+
+</div>

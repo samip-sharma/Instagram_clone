@@ -7,8 +7,17 @@ Rails.application.routes.draw do
   get "/login", to: "auth#new"
   post "/auth", to:"auth#create"
   delete "/auth", to:"auth#destroy"
-  get "/users/search", to:"users#search", as: "user_search"
+post "/users/search", to:"users#search", as: "user_search"
   get "/follow/:id/new", to:"follows#new"
+  get "/follow/following", to:"follows#following"
+  get "/follow/followers", to:"follows#followers"
+  get "/follow/:id/show", to:"follows#show"
+  delete "/follow/:id", to:"follows#destroy"
+  post "/pp/:id/new", to:"users#upload_pp" , as: "upload_pp"
+  post "/photos/:id/likes", to:"photos#like" , as: "like_post"
+  get "follow/:id/image", to: "follows#showimage", as: "display_pic"
+
+
 
 
 

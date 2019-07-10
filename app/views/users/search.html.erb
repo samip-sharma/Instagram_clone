@@ -6,8 +6,7 @@
       </div>
 
       <% @users.each do |user|  %>
-      <div class="users-each">-<a href=<%="/follow/#{user.id}/new" %>> <i class="fas fa-user-plus"></i></a>
-        <%= user.name %>-
+        <%= user.name  %>-
       </div>
 
       <% end %>
