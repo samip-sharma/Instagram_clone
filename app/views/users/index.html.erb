@@ -35,59 +35,57 @@
 </div>
 <!-- nav-show end -->
 
-
 <div class="wrapper-show">
-
 
 <div class="container-wall">
 
-
 <!-- image-wall -->
 <div class="image-wall">
-<% if @user.followers.length !=0 %>
-  <% @user.followers.each do |user| %>
+  <% if @user.followers.length !=0 %>
+    <% @user.followers.each do |user| %>
 
-          <div class="block-wall">
+      <div class="block-wall">
 
-                  <% if user.photos.last %>
-                    User name:<%=link_to user.name, "/follow/#{user.id}/show" %><br>
+        <% if user.photos.last %>
+          User name:<%=link_to user.name, "/follow/#{user.id}/show" %><br>
 
-                  <div class="photo-wall">
-                    <% last_pic=user.photos.last %>
+          <div class="photo-wall">
+            <% last_pic=user.photos.last %>
 
-                    <%= image_tag(user.photos.last.image)%>
-                  </div>
-                    Caption:<%= user.photos.last.caption %>
-                <% end %>
-                <br>
-                <div class="like">
-                  <a href='<%="/photos/#{last_pic.id}/likes" %>' data-method="post">
-                    <i class="fa fa-thumbs-up fa-2x" style="color:rgba(79,	159,	246,	1);"> <%= pluralize(last_pic.likes,"like") %> </i>
-                  </a>
-                </div>
-              </div>
-  <% end %>
+              <%= image_tag(user.photos.last.image)%>
+            </div>
+            Caption:<%= user.photos.last.caption %>
+          <% end %>
+          <br>
+          <div class="like">
+            <a href='<%="/photos/#{last_pic.id}/likes" %>' data-method="post">
+              <i class="fa fa-thumbs-up fa-2x" style="color:rgba(79,	159,	246,	1);">
+                <%= pluralize(last_pic.likes,"like") %>
+              </i>
+            </a>
+          </div>
+        </div>
+      <% end %>
 
-<% else %>
-  <%= "You are not following any one" %>
-<% end %>
+    <% else %>
+      <%= "You are not following any one" %>
+    <% end %>
+  </div>
+  <!-- image wall end -->
+
+  <!-- friend-suggestion -->
+  <div class="friend-wall">
+    <p style="font-family: 'Permanent Marker', cursive; color:#75bec4;">Friends Suggestion</p>
+    <% @user_suggestion.each do |user| %>
+      <div class="user-suggestion">
+        <p style="color:#234396;"><%= user.name %></p>
+        <%= button_to "follow", "follow/#{user.id}/new" ,method: :get %>
+      <% end %>
+    </div>
+  </div>
+  <!-- friend suggestion end -->
+
 </div>
-<!-- image wall end -->
-
-
-<!-- friend-suggestion -->
-<div class="friend-wall">
-<p style="font-family: 'Permanent Marker', cursive; color:#75bec4;">Friends Suggestion</p>
-<% @user_suggestion.each do |user| %>
-  <div class="user-suggestion">
-    <p style="color:#234396;"><%= user.name %></p>
-    <%= button_to "follow", "follow/#{user.id}/new" ,method: :get %>
-  <% end %>
-</div>
-</div>
-<!-- friend suggestion end -->
-
-</div>
-<!-- container end  -->
+<!-- container end -->
 
 </div>

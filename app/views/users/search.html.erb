@@ -6,7 +6,7 @@
       </div>
 
       <% @users.each do |user|  %>
-        <%= user.name  %>-
+        <%=link_to user.name,"/follow/#{user.id}/show"   %>
       </div>
 
       <% end %>
