@@ -45,6 +45,7 @@
     <% @user.followers.each do |user| %>
 
       <div class="block-wall">
+
         <% if user.photos.last %>
         <br>
 
@@ -57,14 +58,24 @@
 
           <br>
           <br>
+
+
+        <% if user.photos.last %>
+          User name:<%=link_to user.name, "/follow/#{user.id}/show" %><br>
+
+
           <div class="photo-wall">
             <% last_pic=user.photos.last %>
 
               <%= image_tag(user.photos.last.image)%>
             </div>
+
             <br>
             <p class= "photo-wall-p">Caption:<%= user.photos.last.caption %></p>
             <br>
+
+            Caption:<%= user.photos.last.caption %>
+
           <% end %>
           <br>
           <div class="like">
@@ -74,7 +85,10 @@
               </i>
             </a>
           </div>
+
           <br>
+
+
         </div>
       <% end %>
 

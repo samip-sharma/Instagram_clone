@@ -38,7 +38,7 @@
 .nav-wall {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   width: 100%;
   background-color: rgba(245, 245, 245, 1)
@@ -89,13 +89,7 @@
   margin-left:10px;
 }
 /* show_page */
-.nav-show {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  background-color: rgba(245, 245, 245, 1)
-}
+
 
 .wrapper-show {
   width: 100%;
@@ -113,9 +107,12 @@
 
 .nav-show {
   /* position: fixed; */
+  position: fixed;
+  width: 100%;
+
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 1px solid;
   /* height: 60px; */
   align-items: center;
