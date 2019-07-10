@@ -7,17 +7,16 @@
     </div>
 
     <div class="search-bar">
-      <%= form_tag(user_search_path ,method: :get) do %>
+      <%= form_tag("/users/search" ,method: :get) do %>
          <%= text_field_tag :search %>
         <%= submit_tag 'Search' %>
         <% end %>
     </div>
 
-
-    <div class="upload-show">
-      <a href="/photos/new">
-      <i class="fa fa-upload fa-2x" style="color:black;" >Upload</i></a>
-
+    <div class="profile-show">
+      <a href='<%="/users/#{@user.id}"%>'>
+        <i class="fa fa-user fa-2x" style="color:black;">Profile</i>
+      </a>
     </div>
 
     <div class="signout-bar">
@@ -36,23 +35,19 @@
     <div class="info-show">
 
         <div class="pp-show">
-
-                <% if @user.photos.first.nil?%>
-                      <%= image_tag 'download.jpeg' %>
-                      <%= button_to "Upload" ,'/photos/new' ,method: :get %>
-                  <% else %>
-                  <div class="pp">
-                    <%= image_tag(@user.photos.first.image) %>
-                  </div>
-                  <% end %>
-
+          <% if @user.photos.first.nil?%>
+                <%= image_tag 'download.jpeg' %>
+            <% else %>
+            <div class="pp">
+              <%= image_tag(@user.photos.first.image) %>
+            </div>
+            <% end %>
         </div>
 
         <div class="bio-show">
 
             <div class="name-show">
               <h3>  <%= @user.user_name %></h3>
-              <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
             </div>
 
 
@@ -64,15 +59,11 @@
               </div>
 
               <div>
-                <a href="/follow/following"" style="color:black">
               <h4><%= @user.followers.count %></h4>Following
-              </a>
               </div>
 
               <div>
-                <a href="/follow/followers"" style="color:black">
                 <h4><%= @user.followees.count %></h4>Followers
-                </a>
               </div>
               <!-- follow -end -->
             </div>
@@ -96,7 +87,7 @@
     <% if !@user.photos.nil?%>
       <% @user.photos.each do |photo| %>
       <div class="each-image">
- <%=link_to image_tag(photo.image),photo_path(photo) %>
+ <%=link_to image_tag(photo.image), "/follow/#{photo.id}/image", method: :get %>
         </div>
 
       <% end %>

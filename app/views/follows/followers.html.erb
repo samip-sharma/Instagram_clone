@@ -1,0 +1,50 @@
+<div class="nav-show">
+
+
+    <div class="icon-show">
+      <a href='/users'>
+      <i class="fa fa-instagram fa-2x"  style="color:black;">Instagram</i></a>
+    </div>
+
+    <div class="search-bar">
+      <%= form_tag(user_search_path ,method: :get) do %>
+         <%= text_field_tag :search %>
+        <%= submit_tag 'Search' %>
+        <% end %>
+    </div>
+
+    <div class="profile-show">
+      <a href='<%="/users/#{@user.id}"%>'>
+        <i class="fa fa-user fa-2x" style="color:black;">Profile</i>
+      </a>
+    </div>
+
+
+    <div class="signout-bar">
+      <i class="fa fa-sign-out fa-2x"></i></a>
+      <%= button_to "logout" , "/auth", method: "delete" %>
+    </div>
+<!-- nav-show end -->
+</div>
+
+
+<div class="wrapper">
+  <div class="container">
+
+      <div class="icons">
+        <i class="fa fa-user-friends fa-2x">Followers</i><br><br>
+      </div>
+<ul>
+
+
+      <%@followers.each do |user|  %>
+      <li>
+        <%= link_to user.name, "/follow/#{user.id}/show" %>
+    </li>
+      <% end %>
+</ul>
+      <p><%= flash[:errors] %></p>
+
+  </div>
+
+</div>

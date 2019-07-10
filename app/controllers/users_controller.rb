@@ -2,23 +2,26 @@ class UsersController < ApplicationController
 
   def index
     @user=User.find(session[:id])
-
-    # @user_suggestion=User.all.select{|user| !user.followees.include?(@user)}
-    @user_suggestion=User.all
+    followers=@user.followers
+    @user_suggestion1=User.all.select{|user| user !=@user}
+    @user_suggestion=@user_suggestion1.select{|user| followers.exclude?(user)}
   end
 
-  # def search
-  #   if params[:search]
-  #     @users = User.where('name LIKE ?', "%#{params[:search]}%")
-  #   else
-  #   @users=User.all
-  #   end
-  #   render "search"
-  # end
+  def search
+
+    if params[:search]
+      @users = User.where('name LIKE ?', "%#{params[:search]}%")
+    else
+    @users=User.all
+    end
+    # byebug
+    render "search"
+  end
 
 
 
   def show
+    # byebug
     @user=User.find(session[:id])
   end
 
@@ -60,10 +63,11 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
-  def user_params
-
-
+  def avatar_params
+    params.permit(:avatar)
   end
 
   def user_params
