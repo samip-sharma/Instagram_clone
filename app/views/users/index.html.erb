@@ -82,15 +82,19 @@
          <!-- comments -->
          <% if last_pic.comments.last %>
          <div class="display-comment">
-           <p>Comments:</p>
-           <%= last_pic.comments.last.user.name %>: <%= last_pic.comments.last.text  %>
+           <p class="index-photos-comment">Comments:</p>
+           <a class="who-comment"href="/follow/<%=last_pic.comments.last.user.id%>/show">
+            <strong>
+            <%= image_tag(last_pic.comments.last.user.photos.first.image) %> <%=last_pic.comments.last.user.name%></a></strong>: <%= last_pic.comments.last.text  %>
+          
          </div>
          <% end %>
 
          <div class="new-comment">
            <%= form_tag("/comment/#{last_pic.id}/new/index" ,method: :post) do %>
            <%= text_area_tag :text %>
-           <%= submit_tag "comment" %>
+           <%= submit_tag "comment", :class => "comment-button"%>
+
            <% end %>
          </div>
          <!-- comment end -->

@@ -18,6 +18,42 @@
   object-fit: cover;
   float:left;
 }
+.display-comment img 
+{
+  height:20px;
+  width: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.who-comment 
+{
+  text-decoration: none;
+  color: black;
+}
+#text 
+{
+  margin-bottom:-10px;
+}
+.new-comment #text
+{
+  width: 85%;
+}
+.comment-button 
+{
+  background-color: rgba(81,151,233,1);
+  border-radius: 13%;
+  height: 30px;
+  width: 50px;
+  margin-bottom: 5px;
+}
+.comment-button-second 
+{
+  background-color: rgba(81,151,233,1);
+  border-radius: 13%;
+  height: 30px;
+  width: 50px;
+  margin-bottom: 5px;
+}
 .hellop
 {
   display: inline-block;
@@ -197,4 +233,24 @@
 
 .button_to {
   margin-bottom: 15px;
+}
+
+.all-comments 
+{
+  width:500px;
+  font-size: 20px;
+  border: 3px solid #a2a8d3;
+  box-sizing: border-box;
+  margin-bottom: 60px;
+  padding: 8px;
+}
+
+.all-comments li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.new-comment
+{
+  width: 500px;
 }

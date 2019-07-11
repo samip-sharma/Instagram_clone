@@ -43,7 +43,7 @@
     </div>
 
     <div class="cap-1">
-    <h3>  Caption:<%= @photo.caption %></h3>
+    <h3 >  Caption:<%= @photo.caption %></h3>
     </div>
 
 <br>
@@ -51,7 +51,7 @@
 
 
     <% if @photo.comments.last %>
-    <p>Comments</p>
+
     <ul>
       <div class="all-comments">
         <% @photo.comments.each do |comment| %>
@@ -64,19 +64,22 @@
 
       </li>
         <% end %>
+      <% end %>
+
+        <div class="new-comment">
+      <%= form_tag("/comment/#{@photo.id}/new/follow" ,method: :post) do %>
+      <%= text_area_tag :text %>
+      <%= submit_tag "comment" , :class => "comment-button-second"%>
+      <% end %>
+    </div>
     </div>
     </ul>
-    <% end %>
+
 
 
 
 
     <!-- create comment -->
-    <div class="new-comment">
-      <%= form_tag("/comment/#{@photo.id}/new/follow" ,method: :post) do %>
-      <%= text_area_tag :text %>
-      <%= submit_tag "comment" %>
-      <% end %>
-    </div>
+
     <!-- comment end -->
 </div>
