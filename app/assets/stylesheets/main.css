@@ -118,6 +118,12 @@
   align-items: center;
   background-color: rgba(245, 245, 245, 1);
 }
+.name-one
+{
+  font-size: 26px;
+
+  padding-bottom: 10px;
+}
 
 .info-show {
   padding-top: 100px;
@@ -143,6 +149,11 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.each-image:hover {
+
+  transform: scale(1.1);
 }
 
 .each-image img {
