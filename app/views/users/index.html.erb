@@ -60,7 +60,9 @@
          <div class="photo-wall">
            <% last_pic=user.photos.last %>
 
+            <a href='<%="/follow/#{last_pic.id}/image"%>' class="clickable-wall-img">
              <%= image_tag(user.photos.last.image)%>
+             </a>
            </div>
            <br>
            <p class= "photo-wall-p">Caption:<%= user.photos.last.caption %></p>
@@ -75,6 +77,25 @@
            </a>
          </div>
          <br>
+
+
+         <!-- comments -->
+         <% if last_pic.comments.last %>
+         <div class="display-comment">
+           <p>Comments:</p>
+           <%= last_pic.comments.last.user.name %>: <%= last_pic.comments.last.text  %>
+         </div>
+         <% end %>
+
+         <div class="new-comment">
+           <%= form_tag("/comment/#{last_pic.id}/new/index" ,method: :post) do %>
+           <%= text_area_tag :text %>
+           <%= submit_tag "comment" %>
+           <% end %>
+         </div>
+         <!-- comment end -->
+
+
        </div>
      <% end %>
 

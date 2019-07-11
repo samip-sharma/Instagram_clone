@@ -46,5 +46,37 @@
     <h3>  Caption:<%= @photo.caption %></h3>
     </div>
 
+<br>
 
+
+
+    <% if @photo.comments.last %>
+    <p>Comments</p>
+    <ul>
+      <div class="all-comments">
+        <% @photo.comments.each do |comment| %>
+        <li>
+        <%= comment.user.name %> : <%= comment.text %>
+
+        <% if session[:id].to_i == comment.user.id.to_i || comment.photo.user.id.to_i == session[:id].to_i %>
+        <%= button_to "delete", "/user/#{comment.photo.id}/comment/#{comment.id}/follow", method: "delete" %>
+        <% end %>
+
+      </li>
+        <% end %>
+    </div>
+    </ul>
+    <% end %>
+
+
+
+
+    <!-- create comment -->
+    <div class="new-comment">
+      <%= form_tag("/comment/#{@photo.id}/new/follow" ,method: :post) do %>
+      <%= text_area_tag :text %>
+      <%= submit_tag "comment" %>
+      <% end %>
+    </div>
+    <!-- comment end -->
 </div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post "/comment/:id/new/:where", to:"comments#create" , as: "new_comment"
+  delete "/user/:picid/comment/:id/:where", to: "comments#destroy", as: "delete_comment"
+
   resources :photos
   # resources :follows
   # resources :auth
