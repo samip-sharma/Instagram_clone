@@ -66,18 +66,21 @@
 
       </li>
         <% end %>
+      <% end %>
+
+      <div class="new-comment">
+      <%= form_tag("/comment/#{@photo.id}/new/self" ,method: :post) do %>
+      <%= text_area_tag :text %>
+      <%= submit_tag "comment" , :class => "comment-button-second"%>
+      <% end %>
+    </div>
     </div>
     </ul>
-    <% end %>
+
 
 
     <!-- create comment -->
-    <div class="new-comment">
-      <%= form_tag("/comment/#{@photo.id}/new/self" ,method: :post) do %>
-      <%= text_area_tag :text %>
-      <%= submit_tag "comment" %>
-      <% end %>
-    </div>
+
     <!-- comment end -->
 
 

@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_001128) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes", default: 1
+    t.integer "likes", default: 0
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
