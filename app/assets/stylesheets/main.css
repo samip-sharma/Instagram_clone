@@ -151,7 +151,7 @@
   justify-content: space-between;
 }
 
-.each-image:hover {
+.each-image img:hover{
 
   transform: scale(1.1);
 }
