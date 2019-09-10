@@ -69,6 +69,7 @@
            <br>
          <% end %>
          <br>
+ <% if last_pic%>
          <div class="like">
            <a href='<%="/photos/#{last_pic.id}/likes" %>' data-method="post">
              <i class="fa fa-thumbs-up fa-2x" style="color:rgba(79,    159,    246,    1);">
@@ -89,6 +90,7 @@
           
          </div>
          <% end %>
+         
 
          <div class="new-comment">
            <%= form_tag("/comment/#{last_pic.id}/new/index" ,method: :post) do %>
@@ -98,7 +100,7 @@
            <% end %>
          </div>
          <!-- comment end -->
-
+<%end%>
 
        </div>
      <% end %>
