@@ -1,24 +1,8 @@
-# README
+Instagram Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone of the photo sharing app Instagram
 
-Things you may want to cover:
+Rails fullstack application using self-referential relationship and MVC
+Authorization and authentication using sessions and cookies 
+Upload images locally using active storage 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
